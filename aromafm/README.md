@@ -1,16 +1,5 @@
-AROMAFM 中文化项目
-----------------------------------------------
-### 编译aromafm需要先编译aroma-installer
-### 编译aroma-installer
-复制到源码目录`/external/aroma-installer`<br>
-编译命令：<br>
-`. build/envsetup.sh`<br>
-`lunch full-eng`<br>
-`make -j8 aroma_installer`<br>
-`make aroma_installer.zip`<br>
-zip将在`external/aroma-installer/out`输出<br>
-
 ### 编译aromafm
+方法一
 复制到源码目录`bootable/recovery/aromafm`<br>
 编译命令：<br>
 `. build/envsetup.sh`<br>
@@ -18,6 +7,20 @@ zip将在`external/aroma-installer/out`输出<br>
 `mmm bootable/recovery/aromafm`<br>
 `mmm bootable/recovery/aromafm/tools`<br>
 zip将在`输出目录/aromafm_out`输出<br>
+
+方法二
+复制到源码目录`bootable/recovery/aromafm`<br>
+修改bootable/recovery/根目录下的Android.mk，在最后一句添加
+
+    include $(commands_recovery_local_path)/aromafm/Android.mk
+
+然后和编译recovery.img步骤一样，编译recovery命令在终端输入：
+编译命令：<br>
+`. build/envsetup.sh`<br>
+`lunch full_yourdevice-eng`<br>
+`make -j6 recovery.img`<br>
+    
+编译完成后会在recovery输出目录产生aromafm_out目录，即是编译出来的AROMA-Filemanager
 
 =============================================================================
 
