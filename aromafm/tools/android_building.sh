@@ -2,7 +2,7 @@
 AROMA_LOCAL_PATH=$(readlink -f $1)
 AROMA_OUT_PATH=$(readlink -f $2)
 AROMA_BINARY=$AROMA_OUT_PATH/aroma_filemanager
-AROMA_ZIP_FILE=aromafm_$3.zip
+AROMA_ZIP_FILE=aromafm.zip
 
 if [ ! -x $AROMA_BINARY ]; then
     echo "0"
@@ -19,4 +19,5 @@ mv $AROMA_BINARY $AROMA_OUT_PATH/zip_src/META-INF/com/google/android/update-bina
 
 cd $AROMA_OUT_PATH/zip_src
 zip -r9q $AROMA_OUT_PATH/$AROMA_ZIP_FILE .
+rm -rf "$AROMA_OUT_PATH/zip_src"
 echo 1

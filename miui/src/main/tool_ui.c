@@ -8,6 +8,7 @@
 #include "../miui_inter.h"
 #include "../miui.h"
 #include "../../../miui_intent.h"
+#define SD_MAX_PATH 256
 static struct _menuUnit *tdb_node = NULL;
 
 static STATUS battary_menu_show(struct _menuUnit* p)
@@ -26,6 +27,14 @@ static STATUS permission_menu_show(struct _menuUnit* p)
     miuiIntent_send(INTENT_MOUNT, 1, "/data");
     miuiIntent_send(INTENT_SYSTEM, 1, "fix_permissions");
     miui_alert(4, p->name, "<~global_done>", "@alert", acfg()->text_ok);
+    return MENU_BACK;
+}
+static STATUS aromafm_menu_show(struct _menuUnit* p)
+{
+    char new_path[SD_MAX_PATH] = "/tmp/aromafm.zip";
+    if (RET_YES == miui_confirm(3, p->name, p->desc, p->icon)) {
+        miuiIntent_send(INTENT_INSTALL, 3, new_path, "0", "1");
+    }
     return MENU_BACK;
 }
 static STATUS log_menu_show(struct _menuUnit* p)
@@ -178,6 +187,13 @@ struct _menuUnit* tool_ui_init()
     menuUnit_set_name(temp, "<~tool.permission.name>"); 
     menuUnit_set_icon(temp, "@tool.permission");
     menuUnit_set_show(temp, &permission_menu_show);
+    assert_if_fail(menuNode_add(p, temp) == RET_OK);
+
+    //aroma file manager
+    temp = common_ui_init();
+    menuUnit_set_name(temp, "<~tool.aromafm.name>"); 
+    menuUnit_set_icon(temp, "@tool.dir");
+    menuUnit_set_show(temp, &aromafm_menu_show);
     assert_if_fail(menuNode_add(p, temp) == RET_OK);
 
     //adb sideload
