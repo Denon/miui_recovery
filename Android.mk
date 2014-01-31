@@ -122,4 +122,6 @@ include $(commands_recovery_local_path)/applypatch/Android.mk
 include $(commands_recovery_local_path)/utilities/Android.mk
 #add device conf
 include $(commands_recovery_local_path)/devices/Android.mk
+#add aromafm
+include $(commands_recovery_local_path)/aromafm/Android.mk
 commands_recovery_local_path :=
