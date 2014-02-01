@@ -46,7 +46,12 @@ time.name=TIME
 sd.install.name=choose zip from sd
 sdext.install.name=choose zip from external sd
 sd.update.name=apply /sdcard/update.zip
+sd.initializing=Initializing...
+sd.install.failed=Install failed!
+sd.install.successs=Install successs!
 sd.log.save=Save Logs
+sd.install.log.save=Save Install Log
+sd.log.save.info=Install Logs has been saved...
 
 power.name=power
 power.title=power operation

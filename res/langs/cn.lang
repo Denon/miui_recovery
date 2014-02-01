@@ -1,4 +1,5 @@
 ﻿### LICENSE:
+#--- COMMON SYSTEM STRING RESOURCE
 #
 text_ok=确定
 text_next=下一步 >
@@ -14,9 +15,7 @@ global_done=操作完成
 text_wait=请稍候...
 text_wait_sideload=请"adb sideload"发送zip...
 
-#
-#-- CUSTOM STRING RESOURCE
-#
+
 lang.name=选择语言
 lang.title_name=请选择语言
 lang.desc=lang selected
@@ -37,18 +36,22 @@ back.title_name=返回到上一步
 
 sd.back.name=返回
 sd.back.desc=返回到上一步
-sd.log.save=保存日志
 
 sd.name=从SD卡安装
 sd.title_name=从SD卡安装
 sd.desc=从SD卡安装
-
 batt.name=电池
 time.name=时间
 
 sd.install.name=从SD卡选择zip包安装
 sdext.install.name=从外置SD卡选择zip包安装
 sd.update.name=安装update.zip
+sd.initializing=正在安装...
+sd.install.failed=安装失败！
+sd.install.successs=安装成功！
+sd.log.save=保存日志
+sd.install.log.save=保存安装日志
+sd.log.save.info=安装日志已被保存...
 
 power.name=电源菜单
 power.title=电源相关操作
@@ -78,7 +81,6 @@ wipe.title=擦除数据操作和格式化分区操作
 wipe.cache.name=擦除cache
 wipe.dalvik-cache.name=擦除dalvik-cache
 wipe.factory.name=清空所有数据
-
 wipe.data.name=擦除data
 format.system.name=格式化system分区
 format.system1.name=格式化system1分区
