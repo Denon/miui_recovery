@@ -26,7 +26,7 @@ include $(CLEAR_VARS)
   AROMAFM_LOCALPATH := $(LOCAL_PATH)
   
   ## binary output path
-  AROMA_OUT_PATH := $(TARGET_RECOVERY_ROOT_OUT)/../../recovery/root/tmp
+  AROMA_OUT_PATH := $(TARGET_RECOVERY_ROOT_OUT)/../../aromafm_out
 
   ## ZLIB SOURCE FILES
   LOCAL_SRC_FILES := 	\
