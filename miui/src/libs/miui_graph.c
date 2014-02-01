@@ -408,7 +408,7 @@ void ag_copybusy(char * wait){
   while (!(ag_fontready(0))) usleep(50);
   ag_oncopybusy=1;
   
-  //char * wait = "Please Wait...";
+  //char * wait = "<~text_wait>";
   int pad     = agdp()*50;
   int txtW    = ag_txtwidth(wait,0);
   int txtH    = ag_fontheight(0);
@@ -596,7 +596,7 @@ void ag_refreshrate(){
       ag_busyprogress();
     }
     else if(ag_lastbusy<alib_tick()-50){
-      ag_copybusy("Please Wait...");
+      ag_copybusy("<~text_wait>");
       ag_isbusy=2;
     }
   }
@@ -621,7 +621,7 @@ void ag_refreshrate(){
       ag_busyprogress();
     }
     else if(ag_lastbusy<alib_tick()-50){
-      ag_copybusy("Please Wait...");
+      ag_copybusy("<~text_wait>");
       ag_isbusy=2;
     }
   }

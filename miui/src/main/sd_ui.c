@@ -61,7 +61,9 @@ int file_filter(char *file, int file_len)
 static STATUS sd_menu_show(menuUnit *p)
 {
     //ensure_mounte sd path
-    struct _intentResult* result = miuiIntent_send(INTENT_MOUNT, 1, "/sdcard");
+    miuiIntent_send(INTENT_MOUNT, 1, "/sdcard");
+    miuiIntent_send(INTENT_MOUNT, 1, "/system");
+    miuiIntent_send(INTENT_MOUNT, 1, "/data");
     //whatever wether sdd is mounted, scan sdcard and go on
     //assert_if_fail(miuiIntent_result_get_int() == 0);
     int ret ;
@@ -73,7 +75,9 @@ static STATUS sd_menu_show(menuUnit *p)
 static STATUS sdext_menu_show(menuUnit *p)
 {
     //ensure_mounte sd path
-    struct _intentResult* result = miuiIntent_send(INTENT_MOUNT, 1, "/external_sd");
+    miuiIntent_send(INTENT_MOUNT, 1, "/external_sd");
+    miuiIntent_send(INTENT_MOUNT, 1, "/system");
+    miuiIntent_send(INTENT_MOUNT, 1, "/data");
     //whatever wether sdd is mounted, scan sdcard and go on
     //assert_if_fail(miuiIntent_result_get_int() == 0);
     int ret ;
@@ -83,6 +87,9 @@ static STATUS sdext_menu_show(menuUnit *p)
 }
 static STATUS sd_update_show(menuUnit *p)
 {
+    miuiIntent_send(INTENT_MOUNT, 1, "/sdcard");
+    miuiIntent_send(INTENT_MOUNT, 1, "/system");
+    miuiIntent_send(INTENT_MOUNT, 1, "/data");
     char new_path[SD_MAX_PATH] = "/sdcard/update.zip";
     int wipe_cache = 0;
 #ifdef DUALSYSTEM_PARTITIONS

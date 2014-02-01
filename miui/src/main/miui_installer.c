@@ -135,7 +135,7 @@ void ai_dump_logs(){
   
   byte res = aw_confirm(
     ai_win,
-    "Save Install Log",
+    "<~sd.install.log.save>",
     msgtext,
     "@alert",
     NULL,
@@ -147,8 +147,8 @@ void ai_dump_logs(){
     //rename(MIUI_INSTALL_LOG,dumpname);
     aw_alert(
       ai_win,
-      "Save Install Log",
-      "Install Logs has been saved...",
+      "<~sd.install.log.save>",
+      "<~sd.log.save.info>",
       "@info",
       NULL
     );
@@ -375,7 +375,7 @@ void miui_init_install(
   ai_prog_h = ai_prog_oh-((hlfdp*2)+2);
   ai_prog_w = pw-((hlfdp*2)+2);
   ai_prog_r = ai_prog_or-(1+hlfdp);
-  snprintf(ai_progress_text,63,"Initializing...");
+  snprintf(ai_progress_text,63,"<~sd.initializing>");
   snprintf(ai_progress_info,100,"");
   pthread_mutex_unlock(&ai_progress_mutex);
   return ;
@@ -417,7 +417,7 @@ int miui_start_install(
     switch (aw_gm(msg)){
       case 16:{
         //install failed
-        miuiInstall_set_text("Install failed!\n");
+        miuiInstall_set_text("<~sd.install.failed>\n");
         ondispatch = 0;
         ai_return_status = -1;
 
@@ -425,7 +425,7 @@ int miui_start_install(
          break;
       case 15:{
         //install ok
-        miuiInstall_set_text("Install successs!\n");
+        miuiInstall_set_text("<~sd.install.successs>\n");
         ai_return_status = 0;
         ondispatch = 0;
       }
@@ -462,7 +462,7 @@ int miui_start_install(
       // Show Dump Button
       acbutton(
         hWin,
-        pad,py,(cw/2)-(agdp()*2),ph,"Save Logs",0,
+        pad,py,(cw/2)-(agdp()*2),ph,"<~sd.log.save>",0,
         8
       );
       
