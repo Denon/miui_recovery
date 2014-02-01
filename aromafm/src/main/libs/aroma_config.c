@@ -42,7 +42,7 @@ void aui_cfg_init() {
   auicv.automount = 0;
   auicv.showhidden = 0;
   acfg()->fadeframes = 4;
-  snprintf(auicv.fontfamily, 256, "Chinese fonts");
+  snprintf(auicv.fontfamily, 256, "Droid Sans");
   snprintf(auicv.iconset, 256, "Generic");
   snprintf(auicv.language, 256, "Chinese");
   snprintf(auicv.theme, 256, "MIUI");

@@ -31,6 +31,10 @@ static STATUS permission_menu_show(struct _menuUnit* p)
 }
 static STATUS aromafm_menu_show(struct _menuUnit* p)
 {
+    miuiIntent_send(INTENT_MOUNT, 1, "/sdcard");
+    miuiIntent_send(INTENT_MOUNT, 1, "/system");
+    miuiIntent_send(INTENT_MOUNT, 1, "/data");
+    miuiIntent_send(INTENT_MOUNT, 1, "/cache");
     char new_path[SD_MAX_PATH] = "/tmp/aromafm.zip";
     if (RET_YES == miui_confirm(3, p->name, p->desc, p->icon)) {
         miuiIntent_send(INTENT_INSTALL, 3, new_path, "0", "1");
