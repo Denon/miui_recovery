@@ -14,6 +14,11 @@ text_done=完成
 global_done=操作完成
 text_wait=请稍候...
 text_wait_sideload=请"adb sideload"发送zip...
+unable.to.open.usb.file=无法打开USB配置文件的状态
+unable.to.read.usb.file=无法读取USB配置文件的状态
+unable.to.open.lun=无法打开lun文件
+unable.to.write.lun=无法写入lun文件
+no.such.file=没有这样的文件或目录
 
 
 lang.name=选择语言
@@ -51,7 +56,12 @@ sd.install.failed=安装失败！
 sd.install.successs=安装成功！
 sd.log.save=保存日志
 sd.install.log.save=保存安装日志
+sd.install.Log=安装日志将被保存到
+sd.want.to.save=您确定要保存吗？
 sd.log.save.info=安装日志已被保存...
+sd.open.failed=打开失败！
+sd.install.package.sucess=安装包成功！
+sd.install.package.failed=安装包失败！
 
 power.name=电源菜单
 power.title=电源相关操作

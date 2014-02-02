@@ -46,13 +46,13 @@ static int is_usb_connected() {
     int fd = open(BOARD_USB_CONFIG_FILE, O_RDONLY);
 
     if (fd < 0) {
-        LOGE("Unable to open usb_configuration state file(%s)\n",
+        LOGE("<~unable.to.open.usb.file>(%s)\n",
             strerror(errno));
         return 0;
     }
 
     if (read(fd, state, sizeof(state)) < 0) {
-        LOGE("Unable to read usb_configuration state file(%s)\n",
+        LOGE("<~unable.to.read.usb.file>(%s)\n",
             strerror(errno));
         close(fd);
         return 0;
@@ -77,13 +77,13 @@ static int mount_usb() {
        property_set("sys.usb.config", "mass_storage,adb");
 
     if ((fd = open(acfg()->lun_file, O_WRONLY)) < 0) {
-        LOGE("Unable to open ums lunfile (%s)", strerror(errno));
+        LOGE("<~unable.to.open.lun> (%s)", strerror(errno));
         ret = -1;
         goto out;
     }
     if ((write(fd, vol->device, strlen(vol->device)) < 0) &&
             (!vol->device2 || (write(fd, vol->device, strlen(vol->device2)) < 0))) {
-        LOGE("Unable to write to ums lunfile (%s)", strerror(errno));
+        LOGE("<~unable.to.write.lun> (%s)", strerror(errno));
         ret = -1;
     }
 
@@ -99,13 +99,13 @@ static int umount_usb() {
     char value[PROPERTY_VALUE_MAX];
 
     if ((fd = open(acfg()->lun_file, O_WRONLY)) < 0) {
-        LOGE("Unable to open ums lunfile (%s)", strerror(errno));
+        LOGE("<~unable.to.open.lun> (%s)", strerror(errno));
         ret = -1;
     goto out;
     }
 
     if (write(fd, &ch, 1) < 0) {
-        LOGE("Unable to write to ums lunfile (%s)", strerror(errno));
+        LOGE("<~unable.to.write.lun> (%s)", strerror(errno));
         ret = -1;
     }
     close(fd);
