@@ -118,7 +118,7 @@ void ai_actionsavelog(char * name){
   f = fopen(name, "wb");
   if (f == NULL) 
   {
-      miui_error("%s open failed!\n", name);
+      miui_error("%s <~sd.open.failed>\n", name);
       goto done;
   }
   fprintf(f,"%s", buffer);
@@ -131,7 +131,7 @@ void ai_dump_logs(){
   char dumpname[256];
   char msgtext[256];
   snprintf(dumpname,255,"%s/install.log",RECOVERY_PATH);
-  snprintf(msgtext,255,"Install Log will be saved into:\n\n<#060>%s</#>\n\nAre you sure you want to save it?",dumpname);
+  snprintf(msgtext,255,"<~sd.install.Log>:\n\n<#060>%s</#>\n\n<~sd.want.to.save>",dumpname);
   
   byte res = aw_confirm(
     ai_win,
@@ -168,13 +168,13 @@ static void *miui_install_package(void *cookie){
         {
             //sucecess installed
             aw_post(aw_msg(15, 0, 0, 0));
-            miui_printf("install package sucess!\n");
+            miui_printf("<~sd.install.package.sucess>\n");
         }
         //else installed failed
         else 
         {
             aw_post(aw_msg(16, 0, 0, 0));
-            miui_error("install package failed!\n");
+            miui_error("<~sd.install.package.failed>\n");
         }
         return NULL;
     }
